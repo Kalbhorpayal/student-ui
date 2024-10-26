@@ -1,5 +1,5 @@
-FROM amazonlinux as builder
-RUN yum update && yum install -y java-11-amazon-corretto-devel.x86_64 && yum install maven -y 
+FROM ubuntu as builder
+RUN apt-get update && apt-get install -y java-11-amazon-corretto-devel.x86_64 && apt-get install maven -y 
 COPY . /mnt/student-ui/.
 WORKDIR /mnt/student-ui
 RUN mvn package
